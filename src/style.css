@@ -1,0 +1,236 @@
+/* Default Variables */
+:root {
+    --background-color: #f4f4f4;
+    --text-color: #000000;
+    --link-color: #0066cc;
+    --header-background-color: #333;
+    --footer-background-color: #333;
+    --section-background-color: rgba(255, 255, 255, 0.9); /* Slight transparency */
+    --button-background-color: #0066cc;
+    --button-hover-background-color: #0055a5;
+}
+
+/* Global Styling */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background: url('resources/background.jpg') no-repeat center center fixed;
+    background-size: cover;
+    text-align: center;
+    color: var(--text-color);
+    transition: background-color 0.3s, color 0.3s;
+}
+
+/* HEADER */
+header {
+    background-color: var(--header-background-color);
+    color: white;
+    padding: 15px 0;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    opacity: 0.7;
+}
+
+/* LOGO Sizing and Effects */
+.logo-title {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+}
+
+.club-logo {
+    max-height: 100px;
+    width: auto;
+    border-radius: 15px;
+    transition: box-shadow 0.2s ease, transform 0.2s ease;
+    position: relative;
+}
+
+.club-logo:hover {
+    transform: translate(var(--shadow-x, 0), var(--shadow-y, 0));
+    box-shadow: calc(-1 * var(--shadow-x, 10px)) calc(-1 * var(--shadow-y, 10px)) 15px rgba(0, 0, 0, 0.3);
+}
+
+/* Navbar */
+nav ul {
+    list-style: none;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+}
+
+nav ul li {
+    position: relative;
+    margin: 0 15px;
+}
+
+nav ul li a {
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+    padding: 8px 12px;
+    border-radius: 5px;
+    transition: background 0.3s;
+}
+
+/* Hover Effects for Navbar Links */
+nav ul li a:hover {
+    background: darkred;
+    color: white;
+}
+
+/* Dropdown Menu for Membership */
+.membership {
+    position: relative;
+}
+
+.membership .dropdown {
+    visibility: hidden;
+    opacity: 0;
+    position: absolute;
+    top: -15px;  /* Move the dropdown a little higher than the Membership link */
+    left: 100%;  /* Position it to the right of "Membership" */
+    background-color: #333;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+    border-radius: 5px;
+    z-index: 10;
+    width: 160px;  /* Fixed width to make dropdown more organized */
+    transition: opacity 0.3s, visibility 0.3s;
+    display: block;
+}
+
+.membership:hover .dropdown {
+    visibility: visible;
+    opacity: 1;
+}
+
+.membership .dropdown li {
+    padding: 10px;
+    border-bottom: 1px solid #444;  /* Add a border between options for separation */
+    display: block;  /* This makes the list items stack vertically */
+}
+
+.membership .dropdown li:last-child {
+    border-bottom: none;  /* Remove border on the last item */
+}
+
+.membership .dropdown li a {
+    color: white;
+    text-decoration: none;
+    display: block;  /* Makes each option a block element so they stack */
+    padding: 8px;
+}
+
+.membership .dropdown li a:hover {
+    background: darkred;
+}
+
+/* SECTIONS */
+section {
+    max-width: 750px;
+    margin: 20px auto;
+    padding: 30px;
+    background-color: var(--section-background-color);
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    transition: background-color 0.3s;
+    opacity: 0.8;
+}
+
+section:hover {
+    background-color: darkred;
+    color: white;
+    opacity: 0.9;
+    transition: background-color 0.3s ease-in-out;
+}
+
+/* FOOTER */
+footer {
+    background-color: var(--footer-background-color);
+    color: white;
+    padding: 10px 0;
+    position: relative;
+    bottom: 0;
+    width: 100%;
+    opacity: 0.6;
+}
+
+/* DARK MODE */
+body.dark-mode {
+    --background-color: #222;
+    --text-color: #ffffff;
+    --link-color: #4a90e2;
+    --header-background-color: #444;
+    --footer-background-color: #444;
+    --section-background-color: rgba(68, 68, 68, 0.9);
+}
+
+/* LIGHT/DARK TOGGLE */
+#checkboxInput {
+    display: none;
+}
+
+.toggleSwitch {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    width: 50px;
+    height: 30px;
+    background-color: rgb(82, 82, 82);
+    border-radius: 20px;
+    cursor: pointer;
+    transition-duration: .2s;
+}
+
+.toggleSwitch::after {
+    content: "";
+    position: absolute;
+    height: 10px;
+    width: 10px;
+    left: 5px;
+    background-color: transparent;
+    border-radius: 50%;
+    transition-duration: .2s;
+    box-shadow: 5px 2px 7px rgba(8, 8, 8, 0.26);
+    border: 5px solid white;
+}
+
+#checkboxInput:checked + .toggleSwitch::after {
+    transform: translateX(100%);
+    transition-duration: .2s;
+    background-color: white;
+}
+
+#checkboxInput:checked + .toggleSwitch {
+    background-color: #9476ff;
+    transition-duration: .2s;
+}
+
+/* RESPONSIVE DESIGN */
+@media screen and (max-width: 768px) {
+    section {
+        max-width: 90%;
+        padding: 20px;
+    }
+    .logo-title {
+        flex-direction: column;
+        text-align: center;
+    }
+    .club-logo {
+        max-height: 70px;
+    }
+    .toggleSwitch {
+        top: 10px;
+        right: 10px;
+    }
+}
