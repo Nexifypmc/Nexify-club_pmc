@@ -1,11 +1,20 @@
 /* Default Variables */
+* {
+    margin: 0%;
+    padding: 0%;
+}
 :root {
     --background-color: #f4f4f4;
     --text-color: #000000;
     --link-color: #0066cc;
     --header-background-color: #333;
     --footer-background-color: #333;
-    --section-background-color: rgba(255, 255, 255, 0.9); /* Slight transparency */
+    --section-background-color: rgba(
+        255,
+        255,
+        255,
+        0.9
+    ); /* Slight transparency */
     --button-background-color: #0066cc;
     --button-hover-background-color: #0055a5;
 }
@@ -15,23 +24,29 @@ body {
     font-family: Arial, sans-serif;
     margin: 0;
     padding: 0;
-    background: url('resources/background.jpg') no-repeat center center fixed;
     background-size: cover;
     text-align: center;
     color: var(--text-color);
-    transition: background-color 0.3s, color 0.3s;
+    transition:
+        background-color 0.3s,
+        color 0.3s;
 }
 
 /* HEADER */
 header {
-    background-color: var(--header-background-color);
-    color: white;
-    padding: 15px 0;
-    position: relative;
+    color: black;
     display: flex;
-    flex-direction: column;
+    position: sticky;
+    top: 0;
+    background: white;
     align-items: center;
-    opacity: 0.7;
+    justify-content: space-evenly;
+}
+
+.club-logo {
+    border-radius: 100%;
+    width: 5rem;
+    max-height: 5rem;
 }
 
 /* LOGO Sizing and Effects */
@@ -40,19 +55,6 @@ header {
     align-items: center;
     justify-content: center;
     gap: 10px;
-}
-
-.club-logo {
-    max-height: 100px;
-    width: auto;
-    border-radius: 15px;
-    transition: box-shadow 0.2s ease, transform 0.2s ease;
-    position: relative;
-}
-
-.club-logo:hover {
-    transform: translate(var(--shadow-x, 0), var(--shadow-y, 0));
-    box-shadow: calc(-1 * var(--shadow-x, 10px)) calc(-1 * var(--shadow-y, 10px)) 15px rgba(0, 0, 0, 0.3);
 }
 
 /* Navbar */
@@ -69,7 +71,7 @@ nav ul li {
 }
 
 nav ul li a {
-    color: white;
+    color: black;
     text-decoration: none;
     font-weight: bold;
     padding: 8px 12px;
@@ -92,8 +94,8 @@ nav ul li a:hover {
     visibility: hidden;
     opacity: 0;
     position: absolute;
-    top: -15px;  /* Move the dropdown a little higher than the Membership link */
-    left: 100%;  /* Position it to the right of "Membership" */
+    top: -15px; /* Move the dropdown a little higher than the Membership link */
+    left: 100%; /* Position it to the right of "Membership" */
     background-color: #333;
     list-style: none;
     padding: 0;
@@ -101,8 +103,10 @@ nav ul li a:hover {
     box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
     border-radius: 5px;
     z-index: 10;
-    width: 160px;  /* Fixed width to make dropdown more organized */
-    transition: opacity 0.3s, visibility 0.3s;
+    width: 160px; /* Fixed width to make dropdown more organized */
+    transition:
+        opacity 0.3s,
+        visibility 0.3s;
     display: block;
 }
 
@@ -113,44 +117,24 @@ nav ul li a:hover {
 
 .membership .dropdown li {
     padding: 10px;
-    border-bottom: 1px solid #444;  /* Add a border between options for separation */
-    display: block;  /* This makes the list items stack vertically */
+    border-bottom: 1px solid #444; /* Add a border between options for separation */
+    display: block; /* This makes the list items stack vertically */
 }
 
 .membership .dropdown li:last-child {
-    border-bottom: none;  /* Remove border on the last item */
+    border-bottom: none; /* Remove border on the last item */
 }
 
 .membership .dropdown li a {
     color: white;
     text-decoration: none;
-    display: block;  /* Makes each option a block element so they stack */
+    display: block; /* Makes each option a block element so they stack */
     padding: 8px;
 }
 
 .membership .dropdown li a:hover {
     background: darkred;
 }
-
-/* SECTIONS */
-section {
-    max-width: 750px;
-    margin: 20px auto;
-    padding: 30px;
-    background-color: var(--section-background-color);
-    border-radius: 10px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
-    transition: background-color 0.3s;
-    opacity: 0.8;
-}
-
-section:hover {
-    background-color: darkred;
-    color: white;
-    opacity: 0.9;
-    transition: background-color 0.3s ease-in-out;
-}
-
 /* FOOTER */
 footer {
     background-color: var(--footer-background-color);
@@ -189,7 +173,7 @@ body.dark-mode {
     background-color: rgb(82, 82, 82);
     border-radius: 20px;
     cursor: pointer;
-    transition-duration: .2s;
+    transition-duration: 0.2s;
 }
 
 .toggleSwitch::after {
@@ -200,20 +184,20 @@ body.dark-mode {
     left: 5px;
     background-color: transparent;
     border-radius: 50%;
-    transition-duration: .2s;
+    transition-duration: 0.2s;
     box-shadow: 5px 2px 7px rgba(8, 8, 8, 0.26);
     border: 5px solid white;
 }
 
 #checkboxInput:checked + .toggleSwitch::after {
     transform: translateX(100%);
-    transition-duration: .2s;
+    transition-duration: 0.2s;
     background-color: white;
 }
 
 #checkboxInput:checked + .toggleSwitch {
     background-color: #9476ff;
-    transition-duration: .2s;
+    transition-duration: 0.2s;
 }
 
 /* RESPONSIVE DESIGN */
@@ -233,4 +217,46 @@ body.dark-mode {
         top: 10px;
         right: 10px;
     }
+}
+section {
+    display: flex;
+    width: 100dvw;
+    height: 100dvh;
+    justify-content: center;
+    align-items: center;
+}
+
+section div {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    width: 95vw;
+    height: 70dvh;
+}
+
+#home-container h2 {
+    text-transform: uppercase;
+    text-wrap: wrap;
+    font-weight: 14px;
+    font-size: 4rem;
+    line-height: 7rem;
+}
+
+#home-container p {
+    text-transform: uppercase;
+    text-wrap: wrap;
+    font-weight: 14px;
+    font-size: 1.4rem;
+}
+
+#about-container {
+    border-radius: 14px;
+    padding: 0.2rem;
+    background-color: #5794f7;
+}
+
+#about-container h2 {
+    font-size: 2rem;
+    text-transform: uppercase;
 }
