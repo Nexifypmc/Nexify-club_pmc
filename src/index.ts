@@ -7,7 +7,7 @@
 const nav = document.getElementById("nav-header");
 let previousPosition = window.scrollY;
 let timeoutId: any = null;
-window.addEventListener("scroll", (e) => {
+window.addEventListener("scroll", () => {
   if (timeoutId) {
     clearTimeout(timeoutId);
   }
