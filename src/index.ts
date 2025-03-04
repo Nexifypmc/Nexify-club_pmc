@@ -2,7 +2,7 @@
 // navigation toggle logic
 // Warning: Donot change any class or id in the html file
 // Doing so may result in this logic not working
-//
+// ________________________________________________
 
 const nav = document.getElementById("nav-header");
 let previousPosition = window.scrollY;
