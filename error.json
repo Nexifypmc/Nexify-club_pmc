@@ -1,0 +1,20 @@
+problem1{
+  name = "exp.html";
+  reason = "Unable to view 'exp.html' file at all";
+  location = "./";
+}
+problem2{
+  name = "index.js";
+  reason = "Unable to load the contents of 'testing.js' at all";
+  location = "/src/testing.js";
+}
+problem3{
+  name = "testing.js";
+  reason = "Recieving invalid '<' console error";
+  location = "./";
+}
+problem4{
+  name = "style.css";
+  reason = "Css styling keeps breaking";
+  location = "/src/style.css";
+}
